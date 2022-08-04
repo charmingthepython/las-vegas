@@ -1,0 +1,51 @@
+!
+service timestamps debug datetime msec
+service timestamps log datetime msec
+!
+hostname NCS55A1
+!
+ip cef
+!
+no ip domain lookup
+!
+interface Loopback0
+ ip address 10.10.11.254 255.255.255.255
+ no shutdown
+!
+interface Gig0/1
+ ip address 10.21.11.2 255.255.255.252
+ no shutdown
+!
+interface Gig0/3
+ ip address 10.22.11.2 255.255.255.252
+ no shutdown
+!
+interface Gig0/6
+ ip address 10.11.101.1 255.255.255.252
+ no shutdown
+!
+interface Gig0/2
+ ip address 10.11.13.1 255.255.255.252
+ no shutdown
+!
+interface Gig0/4
+ ip address 10.11.14.1 255.255.255.252
+ no shutdown
+!
+interface Gig0/5
+ ip address 10.11.15.1 255.255.255.252
+ no shutdown
+!
+no ip http server
+!
+control-plane
+!
+line con 0
+ exec-timeout 0 0
+ logging synchronous
+line aux 0
+line vty 0 4
+ login
+!
+!
+end
